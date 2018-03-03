@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "Ball.h"
 
 class ofApp : public ofBaseApp{
 
@@ -21,8 +22,13 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
     
-    Ball myBall1;
-    Ball myBall2;
-    Ball myBall3;
-		
+//    Ball myBall1;
+//    Ball myBall2;
+//    Ball myBall3;
+
+#define NBALLS 10
+    
+    Ball groupOfBalls[NBALLS];
+    
+    vector <Ball> groupOfBalls;
 };

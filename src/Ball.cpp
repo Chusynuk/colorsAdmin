@@ -12,16 +12,13 @@ Ball::Ball(){
     
 }
 
-void Ball::setup(){
-    x = ofRandom(0, ofGetWidth());      // give some random positioning
-    y = ofRandom(0, ofGetHeight());
+void Ball::setup(float _x, float _y, int _dim){
+    x = _x;
+    y = _y;
+    dim = _dim;
     
-    speedX = ofRandom(-1, 1);           // and random speed and direction
+    speedX = ofRandom(-1, 1);
     speedY = ofRandom(-1, 1);
-    
-    dim = 20;
-    
-    color.set(ofRandom(255),ofRandom(255),ofRandom(255)); // one way of defining digital color is by addressing its 3 components individually (Red, Green, Blue) in a value from 0-255, in this example we're setting each to a random value
 }
 
 void Ball::update(){

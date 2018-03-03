@@ -3,26 +3,40 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     
-    myBall1.setup();
-    myBall2.setup();
-    myBall3.setup();
+    for(int i=0; i<NBALLS; i++){
+        
+        int size = (i+1) * 10; // defining the size of each ball based on its place in the array
+        int randomX = ofRandom( 0, ofGetWidth() ); //generate a random value bigger than 0 and smaller than our application screen width
+        int randomY = ofRandom( 0, ofGetHeight() ); //generate a random value bigger than 0 and smaller than our application screen height
+        
+        groupOfBalls[i].setup(randomX, randomY, size);
+    }
 
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
 
-    myBall1.update();
-    myBall2.update();
-    myBall3.update();
+    for(int i=0; i<NBALLS; i++){
+        
+        int size = (i+1) * 10; // defining the size of each ball based on its place in the array
+        int randomX = ofRandom( 0, ofGetWidth() ); //generate a random value bigger than 0 and smaller than our application screen width
+        int randomY = ofRandom( 0, ofGetHeight() ); //generate a random value bigger than 0 and smaller than our application screen height
+        
+        groupOfBalls[i].update(randomX, randomY, size);
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-
-    myBall1.draw();
-    myBall2.draw();
-    myBall3.draw();
+    for(int i=0; i<NBALLS; i++){
+        
+        int size = (i+1) * 10; // defining the size of each ball based on its place in the array
+        int randomX = ofRandom( 0, ofGetWidth() ); //generate a random value bigger than 0 and smaller than our application screen width
+        int randomY = ofRandom( 0, ofGetHeight() ); //generate a random value bigger than 0 and smaller than our application screen height
+        
+        groupOfBalls[i].draw(randomX, randomY, size);
+    }
 }
 
 //--------------------------------------------------------------
@@ -43,6 +57,9 @@ void ofApp::mouseMoved(int x, int y ){
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
 
+    Ball tempBall;                            // create the ball object
+    tempBall.setup(x,y, ofRandom(10,40));    // setup its initial state
+    groupOfBalls.push_back(tempBall);    
 }
 
 //--------------------------------------------------------------
