@@ -28,7 +28,7 @@ class ofApp : public ofBaseApp{
 
 #define NBALLS 10
     
-    Ball groupOfBalls[NBALLS];
+//    Ball groupOfBalls[NBALLS];
     
     vector <Ball> groupOfBalls;
 };

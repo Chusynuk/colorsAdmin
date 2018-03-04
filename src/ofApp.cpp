@@ -17,25 +17,15 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
 
-    for(int i=0; i<NBALLS; i++){
-        
-        int size = (i+1) * 10; // defining the size of each ball based on its place in the array
-        int randomX = ofRandom( 0, ofGetWidth() ); //generate a random value bigger than 0 and smaller than our application screen width
-        int randomY = ofRandom( 0, ofGetHeight() ); //generate a random value bigger than 0 and smaller than our application screen height
-        
-        groupOfBalls[i].update(randomX, randomY, size);
+    for (int i = 0; i<groupOfBalls.size(); i++) {
+        groupOfBalls[i].update();
     }
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    for(int i=0; i<NBALLS; i++){
-        
-        int size = (i+1) * 10; // defining the size of each ball based on its place in the array
-        int randomX = ofRandom( 0, ofGetWidth() ); //generate a random value bigger than 0 and smaller than our application screen width
-        int randomY = ofRandom( 0, ofGetHeight() ); //generate a random value bigger than 0 and smaller than our application screen height
-        
-        groupOfBalls[i].draw(randomX, randomY, size);
+    for (int i = 0 ; i<groupOfBalls.size(); i++) {
+        groupOfBalls[i].draw();
     }
 }
 
@@ -64,7 +54,16 @@ void ofApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
+    
+    for (int i =0; i < groupOfBalls.size(); i++) {
+        float distance = ofDist(x,y, groupOfBalls[i].x, groupOfBalls[i].y); // a method oF gives us to check the distance between two coordinates
+        
+        if (distance < groupOfBalls[i].dim) {
+            groupOfBalls.erase(groupOfBalls.begin()+i); // we need to use an iterator/ reference to the vector position we want to delete
+        }
+    }
 
+    groupOfBalls.clear();
 }
 
 //--------------------------------------------------------------

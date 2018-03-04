@@ -19,6 +19,8 @@ void Ball::setup(float _x, float _y, int _dim){
     
     speedX = ofRandom(-1, 1);
     speedY = ofRandom(-1, 1);
+    
+    color.set(ofRandom(255), ofRandom(255), ofRandom(255));
 }
 
 void Ball::update(){
